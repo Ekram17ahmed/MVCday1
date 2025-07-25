@@ -1,0 +1,49 @@
+﻿@model MVCday1.DTO.EmployeeDTO;
+<div class="card">
+    <div class="card-header">
+        Create Employee
+    </div>
+    <div class="card-body">
+        @if (ViewBag.Message != null)
+        {
+            <div class="alert alert-danger" role="alert">
+                @ViewBag.Message
+            </div>
+        }
+        else
+        {
+            <form >
+                @if (ViewBag.ErrorMessage != null)
+                {
+                    <div class="alert alert-danger" role="alert">
+                        @ViewBag.ErrorMessage
+                    </div>
+                }
+                <input type="hidden" asp-for="Id" />
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Name</label>
+                    <input readonly asp-for="Name" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Age</label>
+                    <input readonly asp-for="Age" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Salary</label>
+                    <input readonly asp-for="Salary" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">DeptId</label>
+                    <input readonly asp-for="DeptId" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+
+                </div>
+                <a asp-controller="Employee" asp-action="Index" class="btn btn-dark">Back</a>
+                <a asp-controller="Employee" asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">Delete</a>
+            </form>
+        }
+
+    </div>
+</div>

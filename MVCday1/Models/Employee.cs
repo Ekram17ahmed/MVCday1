@@ -30,7 +30,18 @@ namespace MVCday1.Models
         public bool isDeleted { get; private set; }
         public DateTime? ModifiedON { get; private set; }
         [ForeignKey("Departement")]
-        public int? DeptID { get; set; }
+        public int? DeptID { get; private set; }
         public Departement? Departement { get; set; }
+        public void Delete()
+        {
+            isDeleted = true;
+        }
+        public void Edit(string name , double salary , int age)
+        {
+            Age = age;
+            Name = name;
+            Salary = salary;
+            ModifiedON = DateTime.Now;
+        }
     }
 }
